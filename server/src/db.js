@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config();//Si está en la raíz principal del proyecto, si no hay que especificar un path
 const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
@@ -37,3 +37,15 @@ module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 };
+
+
+//TESTEANDO CONEXIÓN
+async function testConnection() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+      } catch (error) {
+        console.error('Unable to connect to the database:', error);
+      }
+}
+testConnection();
