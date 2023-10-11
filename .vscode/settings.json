@@ -1,0 +1,33 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#c75aed",
+        "activityBar.background": "#c75aed",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#ecc453",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#c75aed",
+        "statusBar.background": "#b72ce8",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#c75aed",
+        "statusBarItem.remoteBackground": "#b72ce8",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#b72ce8",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#b72ce899",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#b72ce8",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "countries",
+            "username": "postgres",
+            "name": "countries_required_API"
+        }
+    ]
+}
