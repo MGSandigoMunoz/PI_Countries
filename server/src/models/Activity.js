@@ -9,10 +9,12 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement:true,
         allowNull: false,
+        unique:true
     },
-    ativyName:{
+    activityName:{
         type:DataTypes.STRING,
         allowNull: false,
+        
     },
     dificulty:{
         type:DataTypes.INTEGER,

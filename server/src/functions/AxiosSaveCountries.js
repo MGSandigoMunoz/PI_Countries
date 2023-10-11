@@ -14,7 +14,7 @@ const axiosSaveCountries= async ()=>{
           const capital = countryData.capital ? countryData.capital[0] : null;  
           await Country.create({
               countryId:countryData.cca3,//Debe ser acorde a  como viene la info en la API
-              name: countryData.name.official,
+              name: countryData.name.common,
               flag: countryData.flags.svg,
               continents: countryData.continents[0],
               capital:capital,
