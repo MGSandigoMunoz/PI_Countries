@@ -1,4 +1,4 @@
-const axios = require("axios");
+ const axios = require("axios");
 const { Country } = require('../db'); 
 const URL = "http://localhost:5000/countries"
 
@@ -13,7 +13,7 @@ const axiosSaveCountries= async ()=>{
         for (const countryData of countriesData) { // Itera a través de los datos y crea registros en la base de datos
           const capital = countryData.capital ? countryData.capital[0] : null;  
           await Country.create({
-              countryId:countryData.cca3,//Debe ser acorde a  como viene la info en la API
+              id:countryData.cca3,//Debe ser acorde a  como viene la info en la API
               name: countryData.name.common,
               flag: countryData.flags.svg,
               continents: countryData.continents[0],

@@ -1,7 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+
+//Componentes a renderizar
+import CardsView from './components/cardsView/CardsView'
+import Detail from './components/detail/Detail'
+import Form from './components/form/Form'
+import SearchBar from './components/searchBar/SearchBar'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +36,14 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <Routes>
+        <Route>
+          <Route path="/home" element={<CardsView/>}/>
+        </Route>
+      </Routes>
+
+
     </>
   )
 }

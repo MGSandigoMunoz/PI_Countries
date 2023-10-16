@@ -1,6 +1,6 @@
-//!CONEXIÓN DE BASE DE DATOS PostgreSQL CON sequelize A servidor
+//!CONEXIÓN DE BASE DE DATOS PostgreSQL CON sequelize 
 
-require("dotenv").config();//Si está en la raíz principal del proyecto, si no hay que especificar un path
+require("dotenv").config();//Revisar ubicación.Es posible que se deba especificar un path
 const { Sequelize } = require("sequelize");
 
 
@@ -12,8 +12,8 @@ const {
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, 
 {
-  logging: false, 
-  native: false, 
+  logging: false, //controla si se utiliza la extensión nativa de PostgreSQL al conectarse a la base de datos. 
+  native: false, //Sequelize utiliza extensión natvia de pg
 });
 
 //! INSTANCIA MODELOS A SEQUELIZE AUTOMATICAMENTE
@@ -41,8 +41,9 @@ const { Country,Activity } = sequelize.models;
 
 
 //!RELACIÓN N:N
-Country.belongsToMany(Activity,{through:'CountryxActivity'})
+Country.belongsToMany(Activity,{through:'CountryxActivity',timestamps:false})
 Activity.belongsToMany(Country,{through:'CountryxActivity'})
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Country,Activity } = require('../db.js');
