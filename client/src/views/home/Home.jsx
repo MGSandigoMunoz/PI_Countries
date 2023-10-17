@@ -1,5 +1,5 @@
 import Card from '../../components/card/Card';
-import SearchBar from '../../components/searchBar/SearchBar'
+import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
 
 import styles from './Home.module.css'
@@ -9,7 +9,7 @@ function Home() {
     return (
       <div>
         <h1> HOME!</h1>
-        <SearchBar/>
+        <NavBar/>
         <CardsView/>
 
         <div >

@@ -4,7 +4,7 @@ function SearchBar() {
 
     return (
       <div>
-        <p> SEARCH BAR!</p>
+        <input placeholder='...Argentina'></input>
       </div>
     );
   }
