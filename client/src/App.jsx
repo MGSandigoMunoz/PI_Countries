@@ -1,12 +1,6 @@
 // import { useState } from 'react'
 import { Route, Routes} from 'react-router-dom'
 
-//Componentes a renderizar
-import Card from './components/card/Card'
-import CardsView from './components/cardsView/CardsView'
-import NavBar from './components/navBar/NavBar'
-import SearchBar from './components/searchBar/SearchBar'
-
 //Componentes con views a renderizar
 import Detail from './views/detail/Detail'
 import Form from './views/form/Form'
@@ -25,7 +19,6 @@ function App() {
         <Route path='/form' element= { <Form/> }/>
         <Route path='/' element={ <Landing/> }/>
       </Routes>
-
     </div>
   )
 }
