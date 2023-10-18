@@ -4,7 +4,7 @@ const getActivitiesController = async () => {
   try {
     const allActivities = await Activity.findAll({
       include: [
-        {
+        { 
           model: Country,
           attributes: ['name'], // Incluir solo el campo 'name' del modelo Country
         },

@@ -1,15 +1,16 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Card.module.css'
 
-function Card() {
+function Card({name,continent,image}) {
 
+  // const{name, image, continent} = country;
     return (
       <div>
         <div>
-          {/* <h1><NavLink to={`/home/${idPais}`}>{name}</NavLink></h1> */}
-         <p>IMAGE</p>
-         <p>Name: </p>
-         <p>Continent </p>
+         <img src={image} alt={name}/>
+         <p>Name:{name} </p>
+         <p>Continent:{continent} </p>
 
         </div>
       </div>

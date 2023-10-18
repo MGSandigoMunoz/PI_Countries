@@ -1,7 +1,3 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import {getAllCountries} from './redux/countriesSlice'
-
 import { Route, Routes} from 'react-router-dom'
 
 //Componentes con views a renderizar
@@ -13,16 +9,6 @@ import Landing from './views/landing/Landing'
 import './App.css'
 
 function App() {
-
-  
-
-  const dispatch = useDispatch();
-  const getCountries = async () => {
-    const { data } = await axios('/countries');
-    dispatch(getAllCountries(data));
-  };
-
-
 
   return (
     <div>

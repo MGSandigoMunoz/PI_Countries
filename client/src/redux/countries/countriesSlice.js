@@ -10,14 +10,12 @@ export const countriesSlice = createSlice({
     initialState,
     reducers:{
         getAllCountries:(state,action) => {
-            state.allCountries = action.payload
+            state.allCountries = action.payload//La action la recibe de countriesActions
         },
-        // filterByContinent(state,action) =>{
-            
-        // }   
 
     }
 })
 
 export const {getAllCountries}=countriesSlice.actions;
+
 export default countriesSlice.reducer;

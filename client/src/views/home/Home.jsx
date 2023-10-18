@@ -1,20 +1,26 @@
-import {useSelector} from 'react-redux'
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
+import { fetchCountries } from "../../redux/countries/countriesActions";
 
 import styles from './Home.module.css'
 
 function Home() {
 
-  const countries = useSelector((state)=>state.countries)//Nombre dentro del countriesSlice
+  const dispatch = useDispatch();
+  const allCountries = useSelector((state) => state.countries.allCountries);//Accedo al estado global donde están mis countries
 
-  
+  useEffect(() => {
+    // Llama a la acción para cargar los países al cargar la página
+    dispatch(fetchCountries());
+  }, [dispatch]);
 
     return (
       <div>
         <h1> HOME!</h1>
         <NavBar/>
-        <CardsView/>
+        <CardsView countries={allCountries}/>{/* Pasa los datos de los países como propiedades */}
 
         <div >
           <h3>Continents filter</h3>
@@ -61,3 +67,4 @@ function Home() {
   }
 
   export default Home;
+
