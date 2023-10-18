@@ -13,6 +13,6 @@ server.use(express.json());//Configura express para que pueda analizar y manejar
 server.use(cors());//seguridad del browser. Es obligatorio configurar 
 
 //*Importante configurar middlewares antes de las peticiones, para poder recibir las respuesta.
-server.use(router);
+server.use(router); 
 
-module.exports = server;
+module.exports = server; 

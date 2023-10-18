@@ -1,10 +1,14 @@
-import Card from '../../components/card/Card';
+import {useSelector} from 'react-redux'
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
 
 import styles from './Home.module.css'
 
 function Home() {
+
+  const countries = useSelector((state)=>state.countries)//Nombre dentro del countriesSlice
+
+  
 
     return (
       <div>

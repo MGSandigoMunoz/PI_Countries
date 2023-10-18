@@ -1,15 +1,19 @@
-//!CONEXIÓN DE BASE DE DATOS PostgreSQL CON sequelize 
+//!CONEXIÓN DE BASE DE DATOS PostgreSQL CON sequelize  
 
-require("dotenv").config();//Revisar ubicación.Es posible que se deba especificar un path
+require("dotenv").config()//Revisar ubicación.Es posible que se deba especificar un path
 const { Sequelize } = require("sequelize");
-
-
-const fs = require('fs');
+ 
+const fs = require('fs'); 
 const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
+ 
+console.log("DB_USER:", DB_USER);
+console.log("DB_PASSWORD:", DB_PASSWORD);
+console.log("DB_HOST:", DB_HOST);
 
+ 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, 
 {
   logging: false, //controla si se utiliza la extensión nativa de PostgreSQL al conectarse a la base de datos. 
