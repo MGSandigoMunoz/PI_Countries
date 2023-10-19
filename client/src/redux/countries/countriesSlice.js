@@ -13,9 +13,16 @@ export const countriesSlice = createSlice({
             state.allCountries = action.payload//La action la recibe de countriesActions
         },
 
+        searchCountryByName:(state,action) => {
+            state.countries = action.payload
+        }
+
+
+
+
     }
 })
 
-export const {getAllCountries}=countriesSlice.actions;
+export const {getAllCountries, searchCountryByName }=countriesSlice.actions;
 
 export default countriesSlice.reducer;

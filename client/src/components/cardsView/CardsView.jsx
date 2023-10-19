@@ -9,10 +9,11 @@ function CardsView({countries}) {
       <div>
         {countries.map((country) => (
         <Card
-          key={country.id}
+          id={country.id}
+          key={country.id}//Nombres con los que viene de la db
           name={country.name}
           continent={country.continents}
-          imagen={country.flags}
+          image={country.flag}
           />
       ))}
       </div>

@@ -20,8 +20,6 @@ function Home() {
       <div>
         <h1> HOME!</h1>
         <NavBar/>
-        <CardsView countries={allCountries}/>{/* Pasa los datos de los países como propiedades */}
-
         <div >
           <h3>Continents filter</h3>
             <select >
@@ -62,6 +60,8 @@ function Home() {
             <option >Descendente</option>
           </select>
         </div>
+        <CardsView countries={allCountries}/>{/* Pasa los datos de los países como propiedades */}
+
       </div>
     );
   }
