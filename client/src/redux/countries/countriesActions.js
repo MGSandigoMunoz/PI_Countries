@@ -14,6 +14,7 @@ export const fetchCountries = () => async (dispatch) => {
   }
 };
 
+
 export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de mi input
   try {
     const response = await axios.get(`http://localhost:3001/country/name?name=${countryName}`);
@@ -26,6 +27,7 @@ export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de 
     throw new Error (error.message)
   }
 }
+
 
 export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi params id
   try {
@@ -41,6 +43,20 @@ export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi para
     throw new Error (error.message)
   }
 }
+
+
+export const filterCountriesByContinent = (continent) => (dispatch, getState) => {
+  const { allCountries } = getState().countries;//Traigo el estado global allCountries para filtrar la info de allí
+
+  if (continent === "All"){
+    const filteredCountries = allCountries
+    dispatch(getAllCountries(filteredCountries));
+  } else{
+    const filteredCountries = allCountries.filter(
+    (country) => country.continents === continent
+  );
+  dispatch(getAllCountries(filteredCountries));}
+};
 
 
 
