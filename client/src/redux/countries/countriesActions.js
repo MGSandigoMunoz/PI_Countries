@@ -27,9 +27,11 @@ export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de 
   }
 }
 
-export const filterByID= (id)=> async (dispatch) =>{ //name viene de mi params id
+export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi params id
   try {
-    const response = await axios.get(`http://localhost:3001/countries/${id}`);//Retorna objeto
+    
+    const response = await axios.get(`http://localhost:3001/countries/${idPais}`);//Retorna objeto
+
     const data= response.data;
 
     dispatch(getCountryById(data));
