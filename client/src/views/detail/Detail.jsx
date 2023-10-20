@@ -20,7 +20,7 @@ function Detail() {
       <p>DETAIL!</p>
       <p>ID: {cleanIdPais}</p> {/* Corregir a idPais en lugar de id */}
       <p>Name: {countryById.name}</p>
-      <img src={countryById.image} alt={countryById.name} />
+      <img src={countryById.flag} alt={countryById.name} />
       <p>Continent: {countryById.continents}</p>
       <p>Capital: {countryById.capital}</p>
       <p>Subregion: {countryById.subregion}</p>
