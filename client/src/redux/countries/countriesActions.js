@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { getAllCountries } from "./countriesSlice";
-import { searchCountryByName } from "./countriesSlice"
+import { getAllCountries, getCountryById } from "./countriesSlice";
+
 
 
 export const fetchCountries = () => async (dispatch) => {
@@ -20,6 +20,19 @@ export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de 
     const data= response.data;
 
     dispatch(getAllCountries(data));
+
+
+  } catch (error) {
+    throw new Error (error.message)
+  }
+}
+
+export const filterByID= (id)=> async (dispatch) =>{ //name viene de mi params id
+  try {
+    const response = await axios.get(`http://localhost:3001/countries/${id}`);//Retorna objeto
+    const data= response.data;
+
+    dispatch(getCountryById(data));
 
 
   } catch (error) {

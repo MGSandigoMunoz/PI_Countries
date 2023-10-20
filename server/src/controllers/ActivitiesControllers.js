@@ -5,11 +5,11 @@ const getActivitiesController = async () => {
     const allActivities = await Activity.findAll({
       include: [
         { 
-          model: Country,
+          model: Country, 
           attributes: ['name'], // Incluir solo el campo 'name' del modelo Country
         },
       ], // Cargar la asociación con el modelo Country
-    });
+    }); 
     return allActivities;
   } catch (error) {
     throw new Error("No se pudieron obtener las actividades: " + error.message);

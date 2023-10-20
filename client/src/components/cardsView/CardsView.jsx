@@ -14,6 +14,10 @@ function CardsView({countries}) {
           name={country.name}
           continent={country.continents}
           image={country.flag}
+          // capital={country.capital}
+          // subregion={country.subregion}
+          // area = {country.area}
+          // population={country.population}
           />
       ))}
       </div>

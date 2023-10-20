@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     // Llama a la acción para cargar los países al cargar la página
     dispatch(fetchCountries());
-  }, [dispatch]);
+  }, []);
 
     return (
       <div>

@@ -10,7 +10,8 @@ function Card({name,continent,image,id}) {
         <div>
          <img src={image} alt={name}/>
          <p>
-            Name:<NavLink to={`/home/:${id}`}>{name}</NavLink>
+            Name:<NavLink to={`/home/:${id}`} 
+            name={name}>{name}</NavLink>
           </p>
          <p>Continent:{continent} </p>
 

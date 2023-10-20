@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     allCountries:[],
-    countries:[],
+    filteredCountry:[],
 };
 
 export const countriesSlice = createSlice({
@@ -13,16 +13,14 @@ export const countriesSlice = createSlice({
             state.allCountries = action.payload//La action la recibe de countriesActions
         },
 
-        searchCountryByName:(state,action) => {
-            state.countries = action.payload
+        getCountryById:(state,action) => {
+            state.filteredCountry=action.payload
         }
-
-
 
 
     }
 })
 
-export const {getAllCountries, searchCountryByName }=countriesSlice.actions;
+export const {getAllCountries, getCountryById }=countriesSlice.actions;
 
 export default countriesSlice.reducer;

@@ -2,15 +2,18 @@ const { Country} = require('../db.js')
 const { Op } = require("sequelize");
 
 const getCountryByNameController = async (name) => {
+
+  const nameLowerCase = name.toLowerCase();
+
   try {
 
     const countries = await Country.findAll({
       where: {
         name: {
-          [Op.iLike]: `%${name}%` // Búsqueda insensible a mayúsculas/minúsculas
+          [Op.iLike]: `%${nameLowerCase}%` // Búsqueda insensible a mayúsculas/minúsculas
         }
       }
-    });
+    }); 
 
     if (countries.length > 0) {
       return countries;
