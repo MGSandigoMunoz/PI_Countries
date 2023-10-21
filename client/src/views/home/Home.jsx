@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
-import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC } from "../../redux/countries/countriesActions";
+import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC,  organizeCountriesByPopulation } from "../../redux/countries/countriesActions";
 
 import styles from './Home.module.css'
 
@@ -27,6 +27,10 @@ function Home() {
 
   const handleOrder = (event) =>{
     dispatch(organizeCountriesByABC(event.target.value))
+  }
+
+  const handleOrderPopulation = (event) =>{
+    dispatch( organizeCountriesByPopulation(event.target.value))
   }
 
     return (
@@ -68,9 +72,9 @@ function Home() {
 
         <div >
           <h3>Organize countries by population</h3>
-          <select>
-            <option >Ascendente</option>
-            <option >Descendente</option>
+          <select onChange={handleOrderPopulation}>
+            <option value = "A">Ascendente</option>
+            <option value = "D">Descendente</option>
           </select>
         </div>
         <CardsView countries={allCountries} filter ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}

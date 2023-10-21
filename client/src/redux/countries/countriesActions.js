@@ -78,9 +78,9 @@ export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatc
   const sortedCountries = [...allCountries];
 
   if (ascendingOrDescending === "A") {
-    sortedCountries.sort((a, b) => a.population.localeCompare(b.population));
+    sortedCountries.sort((a, b) => a.population - b.population); 
   } else if (ascendingOrDescending === "D") {
-    sortedCountries.sort((a, b) => b.population.localeCompare(a.population));
+    sortedCountries.sort((a, b) => b.population - a.population); 
   }
 
   dispatch(getAllCountries(sortedCountries)); 
