@@ -3,10 +3,13 @@ import Card from '../card/Card';
 
 import styles from './CardsView.module.css'
 
-function CardsView({countries}) {
+function CardsView({countries, filteredCountries}) {
+
+
 
     return (
       <div>
+
         {countries.map((country) => (
         <Card
           id={country.id}

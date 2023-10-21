@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
-import { fetchCountries, filterCountriesByContinent } from "../../redux/countries/countriesActions";
+import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC } from "../../redux/countries/countriesActions";
 
 import styles from './Home.module.css'
 
@@ -10,7 +10,7 @@ function Home() {
 
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries.allCountries);//Accedo al estado global donde están mis countries
-  
+  const filteredCountries = useSelector((state) => state.countries.filteredCountries);
 
   useEffect(() => {
     // Llama a la acción para cargar los países al cargar la página
@@ -26,7 +26,7 @@ function Home() {
   }
 
   const handleOrder = (event) =>{
-    dispatch()
+    dispatch(organizeCountriesByABC(event.target.value))
   }
 
     return (
@@ -59,9 +59,9 @@ function Home() {
 
         <div >
           <h3>Organize countries by ABC</h3>
-          <select>
-            <option >Ascendente</option>
-            <option >Descendente</option>
+          <select onChange={handleOrder}>
+            <option value = "A" > A-Z </option>
+            <option value = "D" > Z-A </option>
           </select>
         </div>
 
@@ -73,7 +73,7 @@ function Home() {
             <option >Descendente</option>
           </select>
         </div>
-        <CardsView countries={allCountries}/>{/* Pasa los datos de los países como propiedades */}
+        <CardsView countries={allCountries} filter ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}
 
       </div>
     );

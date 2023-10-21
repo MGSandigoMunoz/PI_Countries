@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllCountries, getCountryById } from "./countriesSlice";
+import { getAllCountries, getCountryById, filters } from "./countriesSlice";
 
 
 
@@ -56,6 +56,34 @@ export const filterCountriesByContinent = (continent) => (dispatch, getState) =>
     (country) => country.continents === continent
   );
   dispatch(getAllCountries(filteredCountries));}
+};
+
+export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getState) => {
+  const { allCountries } = getState().countries;
+
+  const sortedCountries = [...allCountries];
+
+  if (ascendingOrDescending === "A") {
+    sortedCountries.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (ascendingOrDescending === "D") {
+    sortedCountries.sort((a, b) => b.name.localeCompare(a.name));
+  }
+
+  dispatch(getAllCountries(sortedCountries)); 
+};
+
+export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatch, getState) => {
+  const { allCountries } = getState().countries;
+
+  const sortedCountries = [...allCountries];
+
+  if (ascendingOrDescending === "A") {
+    sortedCountries.sort((a, b) => a.population.localeCompare(b.population));
+  } else if (ascendingOrDescending === "D") {
+    sortedCountries.sort((a, b) => b.population.localeCompare(a.population));
+  }
+
+  dispatch(getAllCountries(sortedCountries)); 
 };
 
 
