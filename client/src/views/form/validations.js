@@ -23,15 +23,15 @@ export default function validation (input) {
        
         //VALIDACIONES COUNTRIES
     
-        if(!input.countryId){
+        if(!input.countryName){
             error.countries = "You must write the name of the country"
         }
 
-        if(input.countryId.length>35){
+        if(input.countryName.length>35){
             error.countries = "The country name must not be more than 35 characters"
         }
 
-        if(!nameregex.test(input.countryId)){
+        if(!nameregex.test(input.countryName)){
             error.countries= "The name of the country should not have numbers"
         }
                   

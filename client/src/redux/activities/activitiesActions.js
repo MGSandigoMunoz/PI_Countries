@@ -13,16 +13,16 @@ export const fetchActivities = () => async (dispatch)=>{
     }
 }
 
-export const createActivity = ({activityName, difficulty, duration, season, countryId}) => async (dispatch) => {//Debo enviarla en un objeto la activityData
+export const createActivity = ({activityName, difficulty, duration, season, countryName}) => async (dispatch) => {//Debo enviarla en un objeto la activityData
 
     console.log(activityName)
     console.log(difficulty)
     console.log(duration)
     console.log(season)
-    console.log(countryId)
+    console.log(countryName)
     
     try {
-        const response = await axios.post("http://localhost:3001/activities", {activityName, difficulty, duration, season, countryId});
+        const response = await axios.post("http://localhost:3001/activities", {activityName, difficulty, duration, season, countryName});
        
         if (!response) return alert ('no llegó la response')
         else{

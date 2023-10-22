@@ -24,7 +24,7 @@ function Form() {
     difficulty: "1", // Establece un valor por defecto para Difficulty
     duration: Number("1"),  // Establece un valor por defecto para Duration
     season: "Summer", // Establece un valor por defecto para Season
-    countryId:"",
+    countryName:"",
   });
   const [errors, setErrors] = useState({
     name: "Please fill out the form",
@@ -48,7 +48,7 @@ function Form() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!errors.activityName && !errors.countryId) {
+    if (!errors.activityName && !errors.countryName) {
       await dispatch(createActivity(activityData));
 
       setActivityData({
@@ -56,7 +56,7 @@ function Form() {
         difficulty: "1", // Establece un valor por defecto para Difficulty
         duration: Number("1"),  // Establece un valor por defecto para Duration
         season: "Summer", // Establece un valor por defecto para Season
-        countryId:"",
+        countryName:"",
       });
     }
   };
@@ -112,8 +112,8 @@ function Form() {
 
         <label>Countries</label>
         <select
-          name="countryId"
-          value={activityData.countryId}
+          name="countryName"
+          value={activityData.countryName}
           onChange={handleChange}
         >
           <option value="">Select a country</option>
@@ -123,9 +123,9 @@ function Form() {
             </option>
           ))}
         </select>
-        {errors.countryId && <p className="error">{errors.countryId}</p>}
+        {errors.countryName && <p className="error">{errors.countryName}</p>}
 
-        <button type="submit" disabled={errors.activityName || errors.countryId}>
+        <button type="submit" disabled={errors.activityName || errors.countryName}>
           Submit
         </button>
       </form>
