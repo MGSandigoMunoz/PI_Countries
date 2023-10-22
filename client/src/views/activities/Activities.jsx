@@ -13,9 +13,29 @@ function Activities(){
         dispatch(fetchActivities())
       }, []);
 
+
+    const handleChange = (event)=>{
+      const{ name, value }= event.target;
+      
+    }
       return (
         <div>
           <h1>ACTIVITIES!</h1>  
+
+          <div>
+          <h3>Activities filter</h3>
+            <select
+            name="activityName"
+            onChange={handleChange}
+            >
+              <option value="">Select an activity</option>
+              {allActivities?.map((activity,index)=> (
+                <option  key={index} value={activity.activityName}>{activity.activityName}</option>
+              ))}
+             
+            </select>
+        </div>
+
           <ActivitiesView renderActivities={allActivities}/>
 
 

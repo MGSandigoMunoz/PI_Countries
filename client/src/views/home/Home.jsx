@@ -58,16 +58,7 @@ function Home() {
             </select>
         </div>
 
-        <div>
-          <h3>Activities filter</h3>
-            <select>
-              <option>Skydiving</option>
-              <option>Rafting</option>
-              <option>Hiking</option>
-              <option>Rappelling</option>
-              <option>Surf</option>
-            </select>
-        </div>
+        
 
         <div >
           <h3>Organize countries by ABC</h3>

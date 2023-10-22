@@ -9,14 +9,14 @@ import styles from "./Form.module.css";
 function Form() {
   const dispatch = useDispatch();
 
-  //!Countries
+
   const allCountries = useSelector((state) => state.countries.allCountries);
 
   // Llama a la acción para cargar los países al cargar la página
   useEffect(() => {
     dispatch(fetchCountries());
   }, []);
-//!
+
 
 
   const [activityData, setActivityData] = useState({
