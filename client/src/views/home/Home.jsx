@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
 import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC,  organizeCountriesByPopulation } from "../../redux/countries/countriesActions";
+import { fetchActivities } from "../../redux/activities/activitiesActions";
 
 import styles from './Home.module.css'
 
@@ -11,10 +12,11 @@ function Home() {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries.allCountries);//Accedo al estado global donde están mis countries
   const filteredCountries = useSelector((state) => state.countries.filteredCountries);
-
+  // const allActivities = useSelector((state)=> state.activities.allActivities)
   useEffect(() => {
     // Llama a la acción para cargar los países al cargar la página
     dispatch(fetchCountries());
+    dispatch(fetchActivities())
   }, []);
 
   
@@ -32,6 +34,9 @@ function Home() {
   const handleOrderPopulation = (event) =>{
     dispatch( organizeCountriesByPopulation(event.target.value))
   }
+
+
+
 
     return (
       <div>
@@ -78,6 +83,7 @@ function Home() {
           </select>
         </div>
         <CardsView countries={allCountries} filter ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}
+
 
       </div>
     );
