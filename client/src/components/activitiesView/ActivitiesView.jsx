@@ -1,19 +1,19 @@
 import React, {useState} from "react";
 import Activity from "../activity/activity";
 
-function ActivitiesView(renderActivities){
+function ActivitiesView({renderActivities}){
 
     return(
         <div>
-            {renderActivities?.map((activity) => (
+            {renderActivities.map((activity) => (
                 <Activity
-                    id={renderActivities.id}
-                    key={renderActivities.id}
-                    activityName={renderActivities.activityName}
-                    difficulty={renderActivities.difficulty}
-                    duration={renderActivities.duration}
-                    season={renderActivities.season}
-                    Countries={renderActivities.Countries}
+                    id={activity.id}
+                    key={activity.id}
+                    activityName={activity.activityName}
+                    difficulty={activity.difficulty}
+                    duration={activity.duration}
+                    season={activity.season}
+                    Countries={activity.Countries[0].name}
                 />
             ))}
 

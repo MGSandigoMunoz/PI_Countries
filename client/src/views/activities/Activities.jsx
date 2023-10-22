@@ -8,8 +8,6 @@ function Activities(){
     const dispatch = useDispatch ();
     const allActivities = useSelector((state) => state.activities.allActivities)
 
-
-
     useEffect(() => {
         // Llama a la acción para cargar las actividades al cargar la página
         dispatch(fetchActivities())
