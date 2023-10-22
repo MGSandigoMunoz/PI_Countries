@@ -30,6 +30,8 @@ const postActivityController = async (activityName, difficulty, duration, season
       season,
     });
 
+    // const countriesDB = await Countries.findAll({where: {countryId: countryId}})
+
     // Asociar la actividad a los países proporcionados por ID
     await newActivity.addCountries(countryId);
 

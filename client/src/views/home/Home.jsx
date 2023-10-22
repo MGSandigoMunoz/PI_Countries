@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
+import Activities from "../activities/Activities";
 import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC,  organizeCountriesByPopulation } from "../../redux/countries/countriesActions";
 import { fetchActivities } from "../../redux/activities/activitiesActions";
 
@@ -41,6 +43,7 @@ function Home() {
     return (
       <div>
         <h1> HOME!</h1>
+        <NavLink to="/activities"><button >Activities</button></NavLink>
         <NavBar/>
         <div >
           <h3>Filter by continents</h3>

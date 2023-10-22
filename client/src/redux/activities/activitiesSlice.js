@@ -12,7 +12,8 @@ export const activitiesSlice = createSlice({
             state.allActivities = action.payload
         },
         postActivity:(state,action)=>{
-            state.allActivities=[...state, action.payload]//Las actividades acnteriores + la que agrego
+            const {activityData} = action.payload
+            state.allActivities=[...state.allActivities, activityData]
         }   
 
     }

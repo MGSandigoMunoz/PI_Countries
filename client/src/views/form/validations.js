@@ -9,29 +9,29 @@ export default function validation (input) {
 
         //VALIDACIONES NAME
     
-            if(!input.name){
+            if(!input.activityName){
                 error.name = "You must write the name of the activity"
             }
     
-            if(input.name.length>20){
+            if(input.activityName?.length>20){
                 error.name = "The activity name must not be more than 20 characters"
             }
 
-            if(!nameregex.test(input.name)){
+            if(!nameregex.test(input.activityName)){
                 error.name = "The name of the activity should not have numbers"
             }
        
         //VALIDACIONES COUNTRIES
     
-        if(!input.countries){
+        if(!input.countryId){
             error.countries = "You must write the name of the country"
         }
 
-        if(input.countries.length>35){
+        if(input.countryId.length>35){
             error.countries = "The country name must not be more than 35 characters"
         }
 
-        if(!nameregex.test(input.countries)){
+        if(!nameregex.test(input.countryId)){
             error.countries= "The name of the country should not have numbers"
         }
                   

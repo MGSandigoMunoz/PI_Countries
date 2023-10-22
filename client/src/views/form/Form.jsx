@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createActivity } from "../../redux/activities/activitiesActions";
 import { fetchCountries } from "../../redux/countries/countriesActions";
@@ -7,61 +7,79 @@ import validation from "./validations";
 import styles from "./Form.module.css";
 
 function Form() {
+  const dispatch = useDispatch();
+
+  //!Countries
+  const allCountries = useSelector((state) => state.countries.allCountries);
+
+  // Llama a la acción para cargar los países al cargar la página
+  useEffect(() => {
+    dispatch(fetchCountries());
+  }, []);
+//!
 
 
-//?ESTADOS LOCALES
-
-  const [dataActivity, setDataActivity] = useState({
-    name: "",
+  const [activityData, setActivityData] = useState({
+    activityName: "",
+    difficulty: Number("1"), // Establece un valor por defecto para Difficulty
+    duration: Number("1"),  // Establece un valor por defecto para Duration
+    season: "Summer", // Establece un valor por defecto para Season
+    countryId:"",
+  });
+  const [errors, setErrors] = useState({
+    name: "Please fill out the form",
     countries: "",
-    difficulty: "", 
-    duration: "",  
-    season: "",
-  })
+  });
 
-  const [error, setError] = useState({
-    name: "",
-    countries: "",
-    difficulty: "", 
-    duration: "",  
-    season: "",
-  })
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  
+    setActivityData({
+      ...activityData,
+      [name]: value,
+    });
 
-
-  function handleChange(event){
-    setDataActivity({
-      ...dataActivity,
-      [event.target.name] : event.target.value,
-    })
-
-    setError(validation({
-      ...dataActivity,
-      [event.target.name] : event.target.value,
+    setErrors(validation({
+      ...activityData,
+      [name]: value,
     }));
-  
-  }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!errors.activityName && !errors.countryId) {
+      await dispatch(createActivity(activityData));
+
+      setActivityData({
+        activityName: "",
+        difficulty: Number("1"), // Establece un valor por defecto para Difficulty
+        duration: Number("1"),  // Establece un valor por defecto para Duration
+        season: "Summer", // Establece un valor por defecto para Season
+        countryId:"",
+      });
+    }
+  };
 
   return (
     <div>
       <p>FORM!</p>
-      <form >
+      <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
-          name="name"
-          value={dataActivity.value}
-          onChange={handleChange}
           type="text"
-          placeholder="Activity name"
+          name="activityName"
+          value={activityData.activityName}
+          placeholder="Diving..."
+          onChange={handleChange}
         />
-        <span>{error.name}</span>
-        
+        {errors.activityName && <p className="error">{errors.activityName}</p>}
         <label>Difficulty</label>
-        <select 
-        name="difficulty"
-        value={dataActivity.value}
-        onChange={handleChange}>
+        <select
+          name="difficulty"
+          value={activityData.difficulty}
+          onChange={handleChange}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -69,10 +87,11 @@ function Form() {
           <option value="5">5</option>
         </select>
         <label>Duration in hours</label>
-        <select 
-        name="duration"
-        value={dataActivity.value}
-        onChange={handleChange}>
+        <select
+          name="duration"
+          value={activityData.duration}
+          onChange={handleChange}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -80,29 +99,33 @@ function Form() {
           <option value="5">5</option>
         </select>
         <label>Season</label>
-        <select 
-        name="season"
-        value={dataActivity.value}
-        onChange={handleChange}>
+        <select
+          name="season"
+          value={activityData.season}
+          onChange={handleChange}
+        >
           <option value="Summer">Summer</option>
           <option value="Fall">Fall</option>
           <option value="Winter">Winter</option>
           <option value="Spring">Spring</option>
         </select>
-        <label>Countries</label>
-        <input
-          type="text"
-          name="countries"
-          value={dataActivity.value}
-          onChange={handleChange}
-          placeholder="Country or countries names"
-        />
-        <span>{error.countries}</span>
-        
 
-        <button 
-        type="submit"
-        disabled={error.name || error.countries}>
+        <label>Countries</label>
+        <select
+          name="countryId"
+          value={activityData.countryId}
+          onChange={handleChange}
+        >
+          <option value="">Select a country</option>
+          {allCountries?.map((country, index) => (
+            <option key={index} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </select>
+        {errors.countryId && <p className="error">{errors.countryId}</p>}
+
+        <button type="submit" disabled={errors.activityName || errors.countryId}>
           Submit
         </button>
       </form>
@@ -111,5 +134,3 @@ function Form() {
 }
 
 export default Form;
-
-
