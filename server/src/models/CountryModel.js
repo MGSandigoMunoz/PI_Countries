@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
     id:{
       type: DataTypes.STRING(3),
       primaryKey: true,
+      unique: true,
       allowNull: false,
     },
     name: {
@@ -15,14 +16,14 @@ module.exports = (sequelize) => {
     },
     flag:{
       type:DataTypes.STRING,
-      allowNull:true,
+      allowNull:false,
       validate:{
         isUrl:true,//Usar formato CVG porque no distorciona
       }
     },
     continents:{
       type:DataTypes.STRING,
-      allowNull:true,
+      allowNull:false,
     },
     capital:{
       type:DataTypes.STRING,

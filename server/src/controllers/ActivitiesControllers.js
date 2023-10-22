@@ -4,21 +4,25 @@ const getActivitiesController = async () => {
   try {
     const allActivities = await Activity.findAll({
       include: [
-        { 
-          model: Country, 
-          attributes: ['name'], // Incluir solo el campo 'name' del modelo Country
+        {
+          model: Country,
+          attributes: ['name'], // Obtener solo el campo 'name' de Country
+          through: {
+            attributes: [], // No obtener ningún campo de la tabla intermedia
+          },
         },
-      ], // Cargar la asociación con el modelo Country
-    }); 
+      ],
+    });
     return allActivities;
   } catch (error) {
     throw new Error("No se pudieron obtener las actividades: " + error.message);
   }
 };
 
-const postActivityController = async (activityName, difficulty, duration, season, countryId) => {
+const postActivityController = async (activityName, difficulty, duration, season, countryName) => {
   try {
-    if (!activityName || !difficulty || !duration || !season || !countryId) {
+    console.log(countryName)
+    if (!activityName || !difficulty || !duration || !season || !countryName) {
       throw new Error("Campos obligatorios faltantes en la solicitud.");
     }
 
@@ -30,10 +34,15 @@ const postActivityController = async (activityName, difficulty, duration, season
       season,
     });
 
-    // const countriesDB = await Countries.findAll({where: {countryId: countryId}})
+    // const nameLowerCase = countryName.toLowerCase();
+    const dbCountry = await Country.findOne({
+      where: { 
+        name: countryName,
+      }
+    })
 
     // Asociar la actividad a los países proporcionados por ID
-    await newActivity.addCountries(countryId);
+    await newActivity.addCountries(dbCountry);
 
     // Consultar los países asociados a la actividad, pero solo el nombre
     const associatedCountries = await newActivity.getCountries({

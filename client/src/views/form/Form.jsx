@@ -21,7 +21,7 @@ function Form() {
 
   const [activityData, setActivityData] = useState({
     activityName: "",
-    difficulty: Number("1"), // Establece un valor por defecto para Difficulty
+    difficulty: "1", // Establece un valor por defecto para Difficulty
     duration: Number("1"),  // Establece un valor por defecto para Duration
     season: "Summer", // Establece un valor por defecto para Season
     countryId:"",
@@ -53,7 +53,7 @@ function Form() {
 
       setActivityData({
         activityName: "",
-        difficulty: Number("1"), // Establece un valor por defecto para Difficulty
+        difficulty: "1", // Establece un valor por defecto para Difficulty
         duration: Number("1"),  // Establece un valor por defecto para Duration
         season: "Summer", // Establece un valor por defecto para Season
         countryId:"",

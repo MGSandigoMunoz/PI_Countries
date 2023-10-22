@@ -11,8 +11,8 @@ const getActivitiesHandler = async (req, res) => {
   
 const postActivityHandler = async (req, res) => {
   try {
-    const { activityName, difficulty, duration, season, countryId } = req.body;
-    const response = await postActivityController(activityName, difficulty, duration, season, countryId);
+    const { activityName, difficulty, duration, season, countryName } = req.body;
+    const response = await postActivityController(activityName, difficulty, duration, season, countryName);
     return res.status(200).json(response);
   } catch (error) {
     return res.status(500).json({ error: error.message });
