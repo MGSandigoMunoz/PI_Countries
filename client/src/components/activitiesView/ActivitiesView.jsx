@@ -1,11 +1,16 @@
 import React, {useState} from "react";
 import Activity from "../activity/activity";
 
-function ActivitiesView({renderActivities}){
+function ActivitiesView({renderActivities, filterActivity}){
 
+    let activityRender=[]
+    
+    filterActivity.length === 1 ? activityRender=filterActivity : activityRender=filterActivity
+    
+    
     return(
         <div>
-            {renderActivities.map((activity) => (
+            {activityRender.map((activity) => (
                 <Activity
                     id={activity.id}
                     key={activity.id}

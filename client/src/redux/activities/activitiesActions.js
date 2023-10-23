@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllActivities, postActivity } from "./activitiesSlice";
+import { getAllActivities, postActivity, filterbyActivity } from "./activitiesSlice";
 
 export const fetchActivities = () => async (dispatch)=>{
     try {
@@ -30,3 +30,19 @@ export const createActivity = ({activityName, difficulty, duration, season, coun
         console.error("Error al crear la actividad:", error);
     }
 }
+
+export const filterActivities = (activityName) => async (dispatch, getState) => {
+    try {
+        const allActivities = getState().activities.allActivities;
+        if (!activityName) {
+            // Si activityName está vacío, muestra todas las actividades
+            dispatch(filterbyActivity(allActivities));
+        } else {
+            // Filtra las actividades basadas en activityName
+            const filteredActivities = allActivities.filter(activity => activity.activityName === activityName);
+            dispatch(filterbyActivity(filteredActivities));
+        }
+    } catch (error) {
+        console.error("Error al filtrar las actividades:", error);
+    }
+};
