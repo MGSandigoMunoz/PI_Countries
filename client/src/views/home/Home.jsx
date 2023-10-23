@@ -3,27 +3,26 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import NavBar from '../../components/navBar/NavBar';
 import CardsView from '../../components/cardsView/CardsView'
-import Activities from "../activities/Activities";
 import { fetchCountries, filterCountriesByContinent, organizeCountriesByABC,  organizeCountriesByPopulation } from "../../redux/countries/countriesActions";
-import { fetchActivities } from "../../redux/activities/activitiesActions";
 
 import styles from './Home.module.css'
 
 function Home() {
 
   const dispatch = useDispatch();
+
   const allCountries = useSelector((state) => state.countries.allCountries);//Accedo al estado global donde están mis countries
+
   const filteredCountries = useSelector((state) => state.countries.filteredCountries);
-  // const allActivities = useSelector((state)=> state.activities.allActivities)
+
   useEffect(() => {
     // Llama a la acción para cargar los países al cargar la página
     dispatch(fetchCountries());
-    dispatch(fetchActivities())
   }, []);
 
   
 
-//?FILTROS
+//?FILTROS CONTINENTS, ORGANIZE ABC Y POPULATION
 
   const handleFilter = (event) =>{
     dispatch(filterCountriesByContinent(event.target.value))
@@ -76,7 +75,7 @@ function Home() {
             <option value = "D">Descendente</option>
           </select>
         </div>
-        <CardsView countries={allCountries} filter ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}
+        <CardsView  countries ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}
 
 
       </div>

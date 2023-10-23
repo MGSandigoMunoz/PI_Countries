@@ -13,9 +13,11 @@ function Activities(){
     const filteredActivity = useSelector((state) => state.activities.filteredActivity)
 
     useEffect(() => {
-        // Llama a la acción para cargar las actividades al cargar la página
+      // Llama a la acción para cargar los países al cargar la página
         dispatch(fetchActivities())
       }, []);
+
+//? FILTRO ACTIVIDADES
 
       const handleFilter = (event) =>{
        dispatch(filterActivities(event.target.value))
@@ -46,7 +48,7 @@ function Activities(){
             </select>
         </div>
 
-          <ActivitiesView renderActivities={allActivities} filterActivity={filteredActivity}/>
+          <ActivitiesView  filterActivity={filteredActivity}/>
 
 
         </div>

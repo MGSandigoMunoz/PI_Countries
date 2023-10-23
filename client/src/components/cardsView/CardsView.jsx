@@ -3,7 +3,7 @@ import Card from '../card/Card';
 
 import styles from './CardsView.module.css'
 
-function CardsView({countries, filteredCountries}) {
+function CardsView({countries}) {
 
   //?PAGINADO
 

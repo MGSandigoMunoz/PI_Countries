@@ -49,14 +49,14 @@ export const filterCountriesByContinent = (continent) => (dispatch, getState) =>
   const { allCountries } = getState().countries;//Traigo el estado global allCountries para filtrar la info de allí
 
   if (continent === "All"){
-    const filteredCountries = allCountries
-    dispatch(getAllCountries(filteredCountries));
+    dispatch(filters(allCountries));
   } else{
     const filteredCountries = allCountries.filter(
     (country) => country.continents === continent
   );
-  dispatch(getAllCountries(filteredCountries));}
+  dispatch(filters(filteredCountries));}
 };
+
 
 export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getState) => {
   const { allCountries } = getState().countries;
@@ -71,6 +71,7 @@ export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getS
 
   dispatch(getAllCountries(sortedCountries)); 
 };
+
 
 export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatch, getState) => {
   const { allCountries } = getState().countries;
