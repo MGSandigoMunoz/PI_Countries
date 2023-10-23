@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ActivitiesView from "../../components/activitiesView/ActivitiesView";
 import { fetchActivities, filterActivities } from "../../redux/activities/activitiesActions";
 
@@ -24,7 +24,13 @@ function Activities(){
     
       return (
         <div>
-          <h1>ACTIVITIES!</h1>  
+          <h1>ACTIVITIES!</h1> 
+
+          <NavLink to="/home">
+            <button >
+              Home
+            </button> 
+          </NavLink>
 
           <div>
           <h3>Activities filter</h3>
@@ -32,7 +38,7 @@ function Activities(){
             name="activityName"
             onChange={handleFilter}
             >
-              <option value="">Select an activity</option>
+              <option value="">All activities</option>
               {allActivities?.map((activity,index)=> (
                 <option  key={index} value={activity.activityName}>{activity.activityName}</option>
               ))}

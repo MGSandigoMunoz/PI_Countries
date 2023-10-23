@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import { filterByID } from '../../redux/countries/countriesActions';
 import styles from './Detail.module.css';
 
@@ -18,6 +19,13 @@ function Detail() {
   return (
     <div>
       <p>DETAIL!</p>
+
+      <NavLink to="/home">
+            <button >
+              Home
+            </button> 
+          </NavLink>
+
       <p>ID: {cleanIdPais}</p> {/* Corregir a idPais en lugar de id */}
       <p>Name: {countryById.name}</p>
       <img src={countryById.flag} alt={countryById.name} />
