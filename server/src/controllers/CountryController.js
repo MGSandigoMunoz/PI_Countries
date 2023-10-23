@@ -1,4 +1,4 @@
-const { Country} = require('../db.js')
+const { Country, Activity} = require('../db.js')
 const { Op } = require("sequelize");
 
 const getCountryByNameController = async (name) => {
@@ -12,7 +12,15 @@ const getCountryByNameController = async (name) => {
         name: {
           [Op.iLike]: `%${nameLowerCase}%` // Búsqueda insensible a mayúsculas/minúsculas
         }
-      }
+      },
+      include:[
+        {
+          model: Activity,
+          attributes: ['activityName'],
+          through: {
+            attributes: [], // No obtener ningún campo de la tabla intermedia
+          },
+        }]
     }); 
 
     if (countries.length > 0) {

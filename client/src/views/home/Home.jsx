@@ -43,7 +43,7 @@ function Home() {
       <div>
         <h1> HOME!</h1>
         <NavLink to="/activities"><button >Activities</button></NavLink>
-        <NavBar/>
+        <NavLink to="/form"><button >Create activity</button></NavLink>
         <div >
           <h3>Filter by continents</h3>
             <select onChange={handleFilter}>

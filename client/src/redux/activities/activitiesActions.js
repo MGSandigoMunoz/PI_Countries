@@ -43,6 +43,6 @@ export const filterActivities = (activityName) => async (dispatch, getState) => 
             dispatch(filterbyActivity(filteredActivities));
         }
     } catch (error) {
-        console.error("Error al filtrar las actividades:", error);
+        console.error("Error al filtrar las actividades:", error.message);
     }
 };

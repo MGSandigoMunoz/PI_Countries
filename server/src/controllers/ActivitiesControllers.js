@@ -21,7 +21,7 @@ const getActivitiesController = async () => {
 
 const postActivityController = async (activityName, difficulty, duration, season, countryName) => {
   try {
-    console.log(countryName)
+    
     if (!activityName || !difficulty || !duration || !season || !countryName) {
       throw new Error("Campos obligatorios faltantes en la solicitud.");
     }

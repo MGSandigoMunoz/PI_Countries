@@ -6,13 +6,15 @@ import styles from './Landing.module.css'
 function Landing() {
   
     return (
-      <div>
-        <h1> WELCOME TO AROUND THE WORLD!</h1>
-        <button>
-          <NavLink to="/home">
-            Home
-          </NavLink>
-        </button>
+      <div className={styles.background}>
+        <div className={styles.centerDiv}>   
+          <h1> WELCOME TO AROUND THE WORLD!</h1>
+          <button>
+            <NavLink to="/home">
+              Home
+            </NavLink>
+          </button>
+        </div>
       </div>
     );
   }
