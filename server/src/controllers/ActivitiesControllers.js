@@ -35,7 +35,7 @@ const postActivityController = async (activityName, difficulty, duration, season
     });
 
     // const nameLowerCase = countryName.toLowerCase();
-    const dbCountry = await Country.findOne({
+    const dbCountry = await Country.findAll({
       where: { 
         name: countryName,
       }

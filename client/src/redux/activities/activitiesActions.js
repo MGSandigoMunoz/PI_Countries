@@ -18,13 +18,10 @@ export const createActivity = ({activityName, difficulty, duration, season, coun
     try {
         const response = await axios.post("http://localhost:3001/activities", {activityName, difficulty, duration, season, countryName});
        
-        if (!response) return alert ('no llegó la response')
-        else{
+       
             const createdActivity = response.data;
             dispatch(postActivity(createdActivity));
-        }
-        
-
+            return alert ('Succesfull! Activity created')
         
     } catch (error) {
         console.error("Error al crear la actividad:", error);

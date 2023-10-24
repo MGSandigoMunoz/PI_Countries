@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Activity from "../activity/activity";
+import Activity from "../activity/Activity";
 
 function ActivitiesView({ filterActivity}){
 
@@ -16,7 +16,7 @@ function ActivitiesView({ filterActivity}){
                     difficulty={activity.difficulty}
                     duration={activity.duration}
                     season={activity.season}
-                    Countries={activity.Countries[0].name}
+                    Countries={activity.Countries?.map((country)=> country.name + " - ")}
                 />
             ))}
 
