@@ -11,8 +11,6 @@ function Home() {
 
   const dispatch = useDispatch();
 
-  const allCountries = useSelector((state) => state.countries.allCountries);//Accedo al estado global donde están mis countries
-
   const filteredCountries = useSelector((state) => state.countries.filteredCountries);
 
   useEffect(() => {
@@ -20,7 +18,10 @@ function Home() {
     dispatch(fetchCountries());
   }, []);
 
-  
+
+  const handleReloadCountries = () => {
+    dispatch(fetchCountries());
+  };
 
 //?FILTROS CONTINENTS, ORGANIZE ABC Y POPULATION
 
@@ -42,8 +43,12 @@ function Home() {
     return (
       <div>
         <h1> HOME!</h1>
+        <button onClick={handleReloadCountries}>Countries</button>
         <NavLink to="/activities"><button >Activities</button></NavLink>
         <NavLink to="/form"><button >Create activity</button></NavLink>
+
+        <NavBar/>
+
         <div >
           <h3>Filter by continents</h3>
             <select onChange={handleFilter}>

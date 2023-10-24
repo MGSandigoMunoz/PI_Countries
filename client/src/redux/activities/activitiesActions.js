@@ -28,7 +28,7 @@ export const createActivity = ({activityName, difficulty, duration, season, coun
     }
 }
 
-export const filterActivities = (activityName) => async (dispatch, getState) => {
+export const filterActivities = (activityName) =>  (dispatch, getState) => {
     try {
         const allActivities = getState().activities.allActivities;
         if (!activityName) {

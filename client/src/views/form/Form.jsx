@@ -1,10 +1,13 @@
 import React, { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { createActivity } from "../../redux/activities/activitiesActions";
 import { fetchCountries } from "../../redux/countries/countriesActions";
+import { fetchActivities } from "../../redux/activities/activitiesActions";
 import validation from "./validations";
 
 import styles from "./Form.module.css";
+
 
 function Form() {
   const dispatch = useDispatch();
@@ -100,6 +103,7 @@ function Form() {
     event.preventDefault();
 
     dispatch(createActivity(activityData));
+  
 
       setActivityData({
         activityName: "",
@@ -116,6 +120,18 @@ function Form() {
   return (
     <div>
       <p>FORM!</p>
+
+      <NavLink to="/home">
+            <button >
+              Home
+            </button> 
+          </NavLink>
+
+          <NavLink to="/activities">
+            <button >
+              Activities
+            </button> 
+          </NavLink>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input

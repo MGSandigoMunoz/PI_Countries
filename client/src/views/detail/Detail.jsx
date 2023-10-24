@@ -16,11 +16,12 @@ function Detail() {
     dispatch(filterByID(cleanIdPais)); // Corregir a idPais en lugar de id
   }, [cleanIdPais, dispatch]);
 
+
   return (
     <div>
       <p>DETAIL!</p>
 
-      <NavLink to="/home">
+      <NavLink to="/home" >
             <button >
               Home
             </button> 

@@ -41,9 +41,14 @@ function Activities(){
             onChange={handleFilter}
             >
               <option value="">All activities</option>
-              {allActivities?.map((activity,index)=> (
-                <option  key={index} value={activity.activityName}>{activity.activityName}</option>
+              {allActivities && allActivities?.map((activity,index)=> (
+                <option  key={index} value={activity?.activityName}>{activity?.activityName}</option>
               ))}
+
+              {/* {filteredActivity && filteredActivity.map((activity, index) => (
+                  <option key={index} value={activity?.activityName}>{activity?.activityName}</option>
+              ))} */}
+
              
             </select>
         </div>

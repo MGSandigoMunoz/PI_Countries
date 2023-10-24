@@ -1,9 +1,11 @@
 import React from "react"
 
+import styles from './Activity.module.css'
+
 function Activity({activityName, difficulty, duration, season, Countries}){
 
     return (
-        <div>
+        <div className={styles.activity}>
             
             <h2>Activity name: {activityName}</h2>
             <p>Difficulty : {difficulty}</p>
