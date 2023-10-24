@@ -12,7 +12,7 @@ const getActivitiesController = async () => {
           },
         },
       ],
-    });
+    }); 
     return allActivities;
   } catch (error) {
     throw new Error("Error loading activities: " + error.message);

@@ -21,7 +21,7 @@ export default function validation (input) {
                 error.name = "The name of the activity should not have numbers"
             }
        
-        //VALIDACIONES COUNTRIES
+        //VALIDACIONES COUNTRIES 
     
         if(!input.countryName){
             error.countries = "You must write the name of the country"

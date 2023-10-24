@@ -20,7 +20,10 @@ function Form() {
   }, []);
   
   
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    name: "Name activity can not be empty",
+    countryName: "Countries names can not be empty"
+  });
   
   const [activityData, setActivityData] = useState({
     activityName: "",
@@ -122,7 +125,7 @@ function Form() {
           placeholder="Diving..."
           onChange={handleChange}
         />
-        {errors.activityName && <p className="error">{errors.activityName}</p>}
+        {errors.name && <p className="error">{errors.name}</p>}
         <label>Difficulty</label>
         <select
           name="difficulty"
@@ -200,28 +203,9 @@ function Form() {
         </div>
 
 
-
-        
-
-
-
-
-        {/* <select
-          name="countryName"
-          value={activityData.countryName}
-          onChange={handleChange}
-        >
-          <option value="">Select a country</option>
-          {allCountries?.map((country, index) => (
-            <option key={index} value={country.name}>
-              {country.name}
-            </option>
-            
-          ))}
-        </select> */}
         {errors.countryName && <p className="error">{errors.countryName}</p>}
 
-        <button type="submit" disabled={errors.activityName || errors.countryName}>
+        <button type="submit" disabled={errors.name || errors.countryName}>
           Submit
         </button>
       </form>
