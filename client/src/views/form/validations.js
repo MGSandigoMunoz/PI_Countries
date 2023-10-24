@@ -2,7 +2,8 @@ export default function validation (input) {
     //input va a ser email || password del usuario. Es decir el estado de ActivityData
     
     // Expresión regular que verifica si solo contiene letras
-    const nameregex = /^[a-zA-Z, ]+$/;
+    const nameregex = /^[a-zA-Z\s]+$/
+    ;
     
     const error={}
     
@@ -18,7 +19,7 @@ export default function validation (input) {
             }
 
             if(!nameregex.test(input.activityName)){
-                error.name = "The name of the activity should not have numbers"
+                error.name = "The name of the activity should not have numbers or empty strings"
             }
        
         //VALIDACIONES COUNTRIES 
@@ -32,7 +33,7 @@ export default function validation (input) {
         }
 
         if(!nameregex.test(input.countryName)){
-            error.countries= "The name of the country should not have numbers"
+            error.countries= "The name of the country should not have numbers or empty strings"
         }
                   
        

@@ -205,7 +205,7 @@ function Form() {
 
         {errors.countryName && <p className="error">{errors.countryName}</p>}
 
-        <button type="submit" disabled={errors.name || errors.countryName}>
+        <button type="submit" disabled={errors.name || !activityData.countryName.length}>
           Submit
         </button>
       </form>
