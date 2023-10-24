@@ -10,7 +10,7 @@ export const fetchCountries = () => async (dispatch) => {
     const data = response.data;
     dispatch(getAllCountries(data));
   } catch (error) {
-    console.error("Error al obtener los países:", error);
+    throw new Error (error.message)
   }
 };
 

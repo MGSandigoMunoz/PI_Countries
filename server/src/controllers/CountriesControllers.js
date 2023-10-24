@@ -1,11 +1,11 @@
-const { Country} = require('../db')
+const { Country } = require('../db')
 
 const getCountriesController = async()=>{
     try {
         const allCountries= await Country.findAll() ;
         return allCountries;
     } catch (error) {
-        throw new Error("No se pudieron obtener los países: " + error.message);
+        throw new Error("Error loading countries: " + error.message);
     }
 }
 
@@ -21,11 +21,11 @@ const getCountryByIdController = async (idPais) => {
           return countryDetail;
         } else {
           
-          return 'País no encontrado';
+          return 'Country not found';
         }
       
     } catch (error) {
-        throw new Error("Error al buscar el país por id " + error.message);;
+        throw new Error("Error searching for the country" + error.message);;
     }
   };
 module.exports = {getCountriesController, getCountryByIdController};

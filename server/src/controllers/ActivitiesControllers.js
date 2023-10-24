@@ -15,7 +15,7 @@ const getActivitiesController = async () => {
     });
     return allActivities;
   } catch (error) {
-    throw new Error("No se pudieron obtener las actividades: " + error.message);
+    throw new Error("Error loading activities: " + error.message);
   }
 };
 
@@ -23,7 +23,7 @@ const postActivityController = async (activityName, difficulty, duration, season
   try {
     
     if (!activityName || !difficulty || !duration || !season || !countryName) {
-      throw new Error("Campos obligatorios faltantes en la solicitud.");
+      throw new Error("Missing required fields"+ error.message);
     }
 
     // Crear una nueva actividad usando el modelo instanciado de Sequelize
@@ -57,7 +57,7 @@ const postActivityController = async (activityName, difficulty, duration, season
 
     return newActivity;
   } catch (error) {
-    throw new Error("Error al crear una nueva actividad: " + error.message);
+    throw new Error("Error creating new activity: " + error.message);
   }
 };
 
