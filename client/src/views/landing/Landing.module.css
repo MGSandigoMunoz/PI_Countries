@@ -17,8 +17,48 @@
     left: 0;
   }
 
+
 .centerDiv {
     text-align: center;
-  
+    font-family:'Courier New', Courier, monospace;
+    text-shadow: 20px 20px 4px hsla(0, 0%, 0%, 0.781);
+    color: #531307;
+    font-size: x-large;
+    -webkit-text-stroke: #e7e4ed;
+    -webkit-text-stroke-width: 0.5px ;
 }
+
+
+button {
   
+    color: #FFF;
+    border: 2px solid rgb(216, 2, 134);
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #D80286;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+  }
+      
+  button:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(211, 107, 194, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    outline-offset: 15px;
+    outline-color: rgba(149, 0, 255, 0.334);
+    text-shadow: 1px 1px 2px #7c7c6d;
+  }
+
+.add{
+  background-image: url("https://r4.wallpaperflare.com/wallpaper/1011/572/940/minimalism-the-moon-smith-cartoon-sanchez-hd-wallpaper-6f9b11847dc7aab15884a78267e2bcb3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Para asegurarse de que la imagen de fondo cubra todo el contenedor */
+    background-attachment: fixed;
+
+}
+

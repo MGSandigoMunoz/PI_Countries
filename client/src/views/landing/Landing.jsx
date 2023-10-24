@@ -9,11 +9,13 @@ function Landing() {
       <div className={styles.background}>
         <div className={styles.centerDiv}>   
           <h1> WELCOME TO AROUND THE WORLD!</h1>
-          <button>
+
+          <button >
             <NavLink to="/home">
               Home
             </NavLink>
           </button>
+
         </div>
       </div>
     );
