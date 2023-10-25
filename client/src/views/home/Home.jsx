@@ -41,12 +41,13 @@ function Home() {
 
 
     return (
-      <div>
-        <h1> HOME!</h1>
+      <div className={styles.home}>
+        <h1> Find your next destiny here ...</h1>
+        <hr/>
         <NavLink to="/activities"><button >Activities</button></NavLink>
         <NavLink to="/form"><button >Create activity</button></NavLink>
         <button onClick={handleReloadCountries}>All countries</button>
-
+        <hr/>
         <NavBar/>
         
 

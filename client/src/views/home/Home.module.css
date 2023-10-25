@@ -1,0 +1,8 @@
+.home {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+    color: #212f57;
+    text-align: center;
+    background-image: url("https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?auto=format&fit=crop&q=80&w=2676&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    height: 100vh;
+  }
