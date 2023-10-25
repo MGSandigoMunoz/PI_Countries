@@ -43,25 +43,11 @@ function Home() {
     return (
       <div>
         <h1> HOME!</h1>
-        <button onClick={handleReloadCountries}>Countries</button>
         <NavLink to="/activities"><button >Activities</button></NavLink>
         <NavLink to="/form"><button >Create activity</button></NavLink>
+        <button onClick={handleReloadCountries}>All countries</button>
 
         <NavBar/>
-
-        <div >
-          <h3>Filter by continents</h3>
-            <select onChange={handleFilter}>
-              <option value="All">All</option>
-              <option value="Africa">Africa</option>
-              <option value="Europe">Europe</option>
-              <option value="Asia">Asia</option>
-              <option value="North America">North America</option>
-              <option value="South America">South America</option>
-              <option value="Antarctica">Antartica</option>
-            </select>
-        </div>
-
         
 
         <div >
@@ -80,6 +66,20 @@ function Home() {
             <option value = "D">Descendente</option>
           </select>
         </div>
+
+        <div >
+          <h3>Filter by continents</h3>
+            <select onChange={handleFilter}>
+              <option value="All">All</option>
+              <option value="Africa">Africa</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Antarctica">Antartica</option>
+            </select>
+        </div>
+
         <CardsView  countries ={filteredCountries}/>{/* Pasa los datos de los países como propiedades */}
 
 

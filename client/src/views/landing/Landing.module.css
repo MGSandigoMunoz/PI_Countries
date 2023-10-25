@@ -1,16 +1,14 @@
 /* styles.module.css */
 
 .background {
-    background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');  
-    background-size: cover; 
+    background-image: url('https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');  
+    background-size:cover; 
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-width: 100%;
-    opacity: 0.8;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position:fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -22,7 +20,7 @@
     text-align: center;
     font-family:'Courier New', Courier, monospace;
     text-shadow: 20px 20px 4px hsla(0, 0%, 0%, 0.781);
-    color: #531307;
+    color: #060607;
     font-size: x-large;
     -webkit-text-stroke: #e7e4ed;
     -webkit-text-stroke-width: 0.5px ;
@@ -54,11 +52,5 @@ button {
     text-shadow: 1px 1px 2px #7c7c6d;
   }
 
-.add{
-  background-image: url("https://r4.wallpaperflare.com/wallpaper/1011/572/940/minimalism-the-moon-smith-cartoon-sanchez-hd-wallpaper-6f9b11847dc7aab15884a78267e2bcb3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; /* Para asegurarse de que la imagen de fondo cubra todo el contenedor */
-    background-attachment: fixed;
 
-}
 

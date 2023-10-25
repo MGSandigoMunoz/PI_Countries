@@ -29,8 +29,22 @@ function CardsView({countries}) {
 
 
     return (
-      <div>
+      <div className={styles.background}>
 
+      <div className={styles.centerDiv}>
+        <span>Page {currentPage} of {totalPages}</span>
+        {pageRange.map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            disabled={page === currentPage}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
+
+     <div className={styles.centerDiv}>
         {countriesOnPage.map((country) => (
         <Card
           id={country.id}
@@ -45,19 +59,9 @@ function CardsView({countries}) {
           />
       ))}
 
+     </div>
 
-      <div >
-        <span>Página {currentPage} de {totalPages}</span>
-        {pageRange.map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageChange(page)}
-            disabled={page === currentPage}
-          >
-            {page}
-          </button>
-        ))}
-      </div>
+
 
 
       </div>

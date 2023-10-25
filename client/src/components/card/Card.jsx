@@ -6,9 +6,11 @@ function Card({name,continent,image,id}) {
 
   // const{name, image, continent} = country;
     return (
-      <div>
-        <div>
-         <img src={image} alt={name}/>
+      <div className={styles.country}>
+        
+          <div className={styles.containerFlag}>
+            <img src={image} alt={name} className={styles.flag}/>
+        
          <p>
             Name:<NavLink to={`/home/:${id}`} 
             name={name}>{name}</NavLink>

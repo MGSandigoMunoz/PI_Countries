@@ -1,0 +1,22 @@
+.country{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    background-color:rgba(127, 255, 212, 0.551);
+    flex-wrap: wrap;
+    border-radius: 10%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 50px;
+    flex: 0 0 calc(25% - 4px);
+    
+
+
+}
+
+.flag {
+    border-radius: 10%;
+    width: 200px;
+    height: 100px;
+  }
+
