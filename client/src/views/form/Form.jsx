@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { createActivity } from "../../redux/activities/activitiesActions";
 import { fetchCountries } from "../../redux/countries/countriesActions";
-import { fetchActivities } from "../../redux/activities/activitiesActions";
 import validation from "./validations";
 
 import styles from "./Form.module.css";
@@ -15,7 +14,7 @@ function Form() {
 
   const allCountries = useSelector((state) => state.countries.allCountries);
 
-  const allActivities = useSelector((state) => state.activities.allActivities) //!CAMBIADO
+  const allActivities = useSelector((state) => state.activities.allActivities) 
 
   // Llama a la acción para cargar los países al cargar la página
   useEffect(() => {
@@ -25,7 +24,6 @@ function Form() {
   
   const [errors, setErrors] = useState({
     name: "Name activity can not be empty",
-    countryName: "Countries names can not be empty"
   });
   
   const [activityData, setActivityData] = useState({
@@ -93,10 +91,6 @@ function Form() {
       countryName: prevData.countryName.filter((c) => c !== country),
     }));
   };
-  
-
-
-//!
 
 
   const handleSubmit = async (event) => {

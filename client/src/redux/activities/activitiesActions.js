@@ -13,15 +13,23 @@ export const fetchActivities = () => async (dispatch)=>{
     }
 };
 
-export const createActivity = ({activityName, difficulty, duration, season, countryName}) => async (dispatch) => {//Debo enviarla en un objeto la activityData
+export const createActivity = ({activityName, difficulty, duration, season, countryName}) => async (dispatch, getState) => {//Debo enviarla en un objeto la activityData
     
     try {
-        const response = await axios.post("http://localhost:3001/activities", {activityName, difficulty, duration, season, countryName});
-       
-       
-            const createdActivity = response.data;
-            dispatch(postActivity(createdActivity));
-            return alert ('Succesfull! Activity created')
+        const allActivities = getState().activities.allActivities;
+
+        const validateName = allActivities.map((activity) => activity.activityName.toLowerCase() === activityName.toLowerCase())
+
+        if (!validateName){
+
+            const response = await axios.post("http://localhost:3001/activities", {activityName, difficulty, duration, season, countryName});
+           
+                const createdActivity = response.data;
+                dispatch(postActivity(createdActivity));
+                return alert ('Succesfull! Activity created')
+        } else {
+            return alert ('This Activity already exists')
+        }
         
     } catch (error) {
         console.error("Error al crear la actividad:", error);
