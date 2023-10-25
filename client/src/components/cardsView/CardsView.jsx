@@ -44,9 +44,10 @@ function CardsView({countries}) {
         ))}
       </div>
 
-     <div className={styles.centerDiv}>
+     <div className={styles.cardCountry}>
         {countriesOnPage.map((country) => (
         <Card
+          
           id={country.id}
           key={country.id}//Nombres con los que viene de la db
           name={country.name}
