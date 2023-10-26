@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllCountries, getCountryById, filters } from "./countriesSlice";
+import { getAllCountries, getCountryById, filters, setCurrentPage } from "./countriesSlice";
 
 
 
@@ -9,6 +9,7 @@ export const fetchCountries = () => async (dispatch) => {
     const response = await axios.get("http://localhost:3001/countries"); 
     const data = response.data;
     dispatch(getAllCountries(data));
+    
   } catch (error) {
     throw new Error (error.message)
   }
@@ -17,10 +18,13 @@ export const fetchCountries = () => async (dispatch) => {
 
 export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de mi input
   try {
+
+   
     const response = await axios.get(`http://localhost:3001/country/name?name=${countryName}`);
     const data= response.data;
 
-    dispatch(getAllCountries(data));
+    dispatch(setCurrentPage(1))
+    dispatch(filters(data));
 
 
   } catch (error) {
@@ -31,6 +35,7 @@ export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de 
 
 export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi params id
   try {
+
     
     const response = await axios.get(`http://localhost:3001/countries/${idPais}`);//Retorna objeto
 
@@ -46,16 +51,17 @@ export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi para
 
 
 export const filterCountriesByContinent = (continent) => (dispatch, getState) => {
-  const { allCountries } = getState().countries;//Traigo el estado global allCountries para filtrar la info de allí
+  const { allCountries,filteredCountries } = getState().countries;
 
   if (continent === "All"){
     dispatch(filters(allCountries));
   } else{
     
-    const filteredCountries = allCountries.filter(
+    const countriesByContinent = filteredCountries.filter(
     (country) => country.continents === continent
   );
-  dispatch(filters(filteredCountries));}
+  dispatch(setCurrentPage(1))
+  dispatch(filters(countriesByContinent));}
 };
 
 
@@ -69,7 +75,7 @@ export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getS
   } else if (ascendingOrDescending === "D") {
     sortedCountries.sort((a, b) => b.name.localeCompare(a.name));
   }
-
+  dispatch(setCurrentPage(1))
   dispatch(filters(sortedCountries)); 
 };
 
@@ -84,7 +90,7 @@ export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatc
   } else if (ascendingOrDescending === "D") {
     sortedCountries.sort((a, b) => b.population - a.population); 
   }
-
+  dispatch(setCurrentPage(1))
   dispatch(filters(sortedCountries)); 
 };
 

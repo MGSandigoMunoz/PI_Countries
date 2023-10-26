@@ -15,6 +15,7 @@ function CardsView({countries}) {
 
   const dispatch = useDispatch();
 
+
   const { currentPage, itemsPerPage} = useSelector((state) => state.countries);
 
   const totalPages = Math.ceil(countries.length / itemsPerPage);
