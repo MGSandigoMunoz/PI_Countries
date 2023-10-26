@@ -11,17 +11,14 @@
     justify-content: center;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
   
   }
 
-
-
-.cardCountry {
-  display: flex; /* Utiliza flexbox para que las tarjetas se muestren en una fila */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan si no caben en una sola fila */
-  gap: 10px; /* Espacio entre las tarjetas */
-  justify-content: center; /* Centra horizontalmente las tarjetas */
-  align-items:normal; /* Alinea las tarjetas en la parte superior del contenedor */
-  
-}
+  .cardCountry {
+    display: flex; /* Utiliza flexbox para que las tarjetas se muestren en una fila */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan si no caben en una sola fila */
+    gap: 10px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra horizontalmente las tarjetas */
+    align-items:normal; /* Alinea las tarjetas en la parte superior del contenedor */
+  }

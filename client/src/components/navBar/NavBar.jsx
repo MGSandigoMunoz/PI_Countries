@@ -5,7 +5,6 @@ function NavBar() {
 
     return (
       <div>
-        <p> NAV BAR!</p>
         <SearchBar/>
       </div>
     );

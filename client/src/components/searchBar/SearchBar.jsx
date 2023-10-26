@@ -24,7 +24,7 @@ function SearchBar() {
         onChange={(event)=> setSearchCountry(event.target.value)}
         />
 
-      <button onClick={handleSearch}>Buscar</button>
+      <button onClick={handleSearch}>Search</button>
       </div>
     );
   }

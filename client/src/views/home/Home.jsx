@@ -46,7 +46,7 @@ function Home() {
         <hr/>
         <NavLink to="/activities"><button >Activities</button></NavLink>
         <NavLink to="/form"><button >Create activity</button></NavLink>
-        <button onClick={handleReloadCountries}>All countries</button>
+        <button onClick={handleReloadCountries}>Refresh</button>
         <hr/>
         <NavBar/>
         

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { filterByID } from '../../redux/countries/countriesActions';
+
 import styles from './Detail.module.css';
 
 function Detail() {
@@ -18,14 +19,10 @@ function Detail() {
 
 
   return (
-    <div>
-      <p>DETAIL!</p>
+    <div className={styles.allContainer}>
+  
 
-      <NavLink to="/home" >
-            <button >
-              Home
-            </button> 
-          </NavLink>
+      <div className={styles.background}>
 
       <p>ID: {cleanIdPais}</p> {/* Corregir a idPais en lugar de id */}
       <p>Name: {countryById.name}</p>
@@ -36,6 +33,15 @@ function Detail() {
       {/* Área se pone si tiene, sino no. Usar condicional ternario */}
       <p>Area: {countryById.area ? countryById.area : "No information"}</p>
       <p>Population: {countryById.population}</p>
+
+      </div>
+      
+      <NavLink to="/home" >
+            <button >
+              Home
+            </button> 
+          </NavLink>
+
     </div>
   );
 }

@@ -13,21 +13,21 @@
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 0.7;
+    
   }
 
 
 .centerDiv {
     text-align: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-shadow: 20px 20px 4px hsla(0, 0%, 6%, 0.497);
-    color: #1010c6;
-    border-color: black;
-    border-width: 1px;
+    font-family:'Courier New', Courier, monospace;
+    text-shadow: 20px 20px 4px hsla(0, 44%, 5%, 0.497);
+    color: #120707;
+    border-width: 5px;
     font-size: x-large;
-    -webkit-text-stroke: #e7e4ed;
+    -webkit-text-stroke: #deefdc;
     -webkit-text-stroke-width: 0.5px ;
 }
+
 
 
 

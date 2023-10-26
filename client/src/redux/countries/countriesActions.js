@@ -51,6 +51,7 @@ export const filterCountriesByContinent = (continent) => (dispatch, getState) =>
   if (continent === "All"){
     dispatch(filters(allCountries));
   } else{
+    
     const filteredCountries = allCountries.filter(
     (country) => country.continents === continent
   );
@@ -59,9 +60,9 @@ export const filterCountriesByContinent = (continent) => (dispatch, getState) =>
 
 
 export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getState) => {
-  const { allCountries } = getState().countries;
+  const { filteredCountries } = getState().countries; //allcountries
 
-  const sortedCountries = [...allCountries];
+  const sortedCountries = [...filteredCountries]; //allcountries
 
   if (ascendingOrDescending === "A") {
     sortedCountries.sort((a, b) => a.name.localeCompare(b.name));
@@ -69,14 +70,14 @@ export const organizeCountriesByABC = (ascendingOrDescending) => (dispatch, getS
     sortedCountries.sort((a, b) => b.name.localeCompare(a.name));
   }
 
-  dispatch(getAllCountries(sortedCountries)); 
+  dispatch(filters(sortedCountries)); 
 };
 
 
 export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatch, getState) => {
-  const { allCountries } = getState().countries;
+  const { filteredCountries } = getState().countries;
 
-  const sortedCountries = [...allCountries];
+  const sortedCountries = [...filteredCountries];
 
   if (ascendingOrDescending === "A") {
     sortedCountries.sort((a, b) => a.population - b.population); 
@@ -84,7 +85,7 @@ export const organizeCountriesByPopulation = (ascendingOrDescending) => (dispatc
     sortedCountries.sort((a, b) => b.population - a.population); 
   }
 
-  dispatch(getAllCountries(sortedCountries)); 
+  dispatch(filters(sortedCountries)); 
 };
 
 

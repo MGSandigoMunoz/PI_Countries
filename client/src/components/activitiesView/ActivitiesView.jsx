@@ -1,13 +1,20 @@
 import React, {useState} from "react";
 import Activity from "../activity/Activity";
 
+import styles from './ActivitiesView.module.css'
+
 function ActivitiesView({ filterActivity}){
 
   
     
     
     return(
-        <div>
+    <div>
+
+        <div className={styles.background}>
+
+            <div className={styles.cardCountry}>
+
             {filterActivity.map((activity) => (
                 <Activity
                     id={activity.id}
@@ -20,8 +27,11 @@ function ActivitiesView({ filterActivity}){
                 />
             ))}
 
+            </div>
+
 
         </div>
+    </div>
     )
 }
 

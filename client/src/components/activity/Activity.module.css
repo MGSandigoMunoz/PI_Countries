@@ -1,7 +1,23 @@
-.activity{
-
-    text-align: center;
-    background-color:aquamarine;
+.country{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color:#dbccb6b6;
     flex-wrap: wrap;
-    
+ 
+    width: 500px; 
+    height: 200px;  
+    border-radius: 5%;
+    padding: 25px; 
+    margin: 20px;
+    align-items:center;
+    text-align:center;
+    line-height:normal;
+    font-size:x-large;
+    color:#44404e;
+    gap:1px;
+  
+      box-shadow: #9e9fa1 0px 50px 100px 10px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+     
+
+
 }
+

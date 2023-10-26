@@ -112,9 +112,8 @@ function Form() {
  
 
   return (
-    <div>
-      <p>FORM!</p>
-
+    <div className={styles.allContainer}>
+      <h1>Let's create a new adventure!</h1>
       <NavLink to="/home">
             <button >
               Home
@@ -126,21 +125,31 @@ function Form() {
               Activities
             </button> 
           </NavLink>
+
+
+    <div className={styles.background}>
+
+
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Activity name</label>
+        <br/>
         <input
           type="text"
           name="activityName"
           value={activityData.activityName}
-          placeholder="Diving..."
+          placeholder="write a name..."
           onChange={handleChange}
+          className={styles.inputsAndSelect}
         />
         {errors.name && <p className="error">{errors.name}</p>}
-        <label>Difficulty</label>
+        <br/>
+        <label>Difficulty    </label>
+        <br/>
         <select
           name="difficulty"
           value={activityData.difficulty}
           onChange={handleChange}
+          className={styles.inputsAndSelect}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -148,30 +157,38 @@ function Form() {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <label>Duration in hours</label>
+       <br/>
+        <label>Duration in hours     </label>
+        <br/>
         <select
           name="duration"
           value={activityData.duration}
           onChange={handleChange}
+          className={styles.inputsAndSelect}
         >
+          
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+
+        <br/>
         <label>Season</label>
+        <br/>
         <select
           name="season"
           value={activityData.season}
           onChange={handleChange}
+          className={styles.inputsAndSelect}
         >
           <option value="Summer">Summer</option>
           <option value="Fall">Fall</option>
           <option value="Winter">Winter</option>
           <option value="Spring">Spring</option>
         </select>
-
+        <br/>
         <label>Countries</label>
 
 
@@ -183,6 +200,7 @@ function Form() {
           placeholder="Write a country name" 
           value={activityData.searchedCountry || ''} 
           onChange={handleSearchedCountry}
+          className={styles.inputsAndSelect}
         />
 
 
@@ -219,6 +237,7 @@ function Form() {
           Submit
         </button>
       </form>
+    </div>
     </div>
   );
 }
