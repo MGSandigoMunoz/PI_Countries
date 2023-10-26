@@ -1,5 +1,6 @@
 const { Activity, Country } = require("../db");
 
+//!GET ACTIVITIES
 const getActivitiesController = async () => {
   try {
     const allActivities = await Activity.findAll({
@@ -19,6 +20,7 @@ const getActivitiesController = async () => {
   } 
 };
 
+//!POST ACTIVITIES
 const postActivityController = async (activityName, difficulty, duration, season, countryName) => {
   try {
     

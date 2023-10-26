@@ -9,4 +9,7 @@ activitiesRouter.post("/", postActivityHandler);
 //? GET /activities
 activitiesRouter.get("/", getActivitiesHandler);
 
+//? DELETE/activities
+// activitiesRouter.get("/", deleteActivitiesHandler);
+
 module.exports = activitiesRouter;

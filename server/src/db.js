@@ -1,6 +1,6 @@
-//!CONEXIÓN DE BASE DE DATOS PostgreSQL CON sequelize  
+//!db CONECTION WITH SEQUELIZE
 
-require("dotenv").config()//Revisar ubicación.Es posible que se deba especificar un path
+require("dotenv").config()
 const { Sequelize } = require("sequelize");
  
 const fs = require('fs'); 
@@ -8,35 +8,29 @@ const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
- 
-console.log("DB_USER:", DB_USER);
-console.log("DB_PASSWORD:", DB_PASSWORD);
-console.log("DB_HOST:", DB_HOST);
 
  
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, 
 {
-  logging: false, //controla si se utiliza la extensión nativa de PostgreSQL al conectarse a la base de datos. 
-  native: false, //Sequelize utiliza extensión natvia de pg
+  logging: false,  
+  native: false, 
 });
 
-//! INSTANCIA MODELOS A SEQUELIZE AUTOMATICAMENTE
+//! INSTANT MODELS AUTOMATICALLY
 
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-//Lee automáticamente los archivos en el directorio 'models' y los carga en el arreglo modelDefiners.
+
 fs.readdirSync(path.join(__dirname, '/models'))
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
     modelDefiners.push(require(path.join(__dirname, '/models', file)));
   });
 
-//Define los modelos de la instancia sequelize
 modelDefiners.forEach(model => model(sequelize));
 
-//Pone los nombres de todos los modelos en mayúscula (convención común en JS)
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
@@ -44,7 +38,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Country,Activity } = sequelize.models;
 
 
-//!RELACIÓN N:N
+//!RELATIONSHIP BETWEEN MODELS
 
 Activity.belongsToMany(Country,{through:'CountryxActivity',timestamps:false})
 Country.belongsToMany(Activity,{through:'CountryxActivity'})
@@ -56,7 +50,8 @@ module.exports = {
 };
 
 
-//!TESTEA CONEXIÓN
+//!TEST CONECTION
+
 async function testConnection() {
     try {
         await sequelize.authenticate();

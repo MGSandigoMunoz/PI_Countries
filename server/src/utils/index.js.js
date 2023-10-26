@@ -1,9 +1,10 @@
- const axios = require("axios");
+const axios = require("axios");
 const { Country } = require('../db'); 
 const URL = "http://localhost:5000/countries"
 
 
-//! HACE PETICIÓN A APPI Y GUARDA EN BASE DE DATOS
+//! APPI REQUEST AND SAVE IN db
+
 const axiosSaveCountries= async ()=>{
     try {
         const response = await axios.get(URL);
@@ -23,10 +24,10 @@ const axiosSaveCountries= async ()=>{
               population: countryData.population,
             });
           }
-          console.log('Países guardados en la base de datos');
+          console.log('Countries saved in the database');
 
     } catch (error) {
-        console.error('Error al obtener los países de la API:', error);
+        console.error('Error getting countries from API:', error);
     }
 }
 

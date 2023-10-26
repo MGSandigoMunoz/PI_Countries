@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import activitiesSlice from "../activities/activitiesSlice";
 
 const initialState = {
     allCountries:[],
@@ -6,6 +7,7 @@ const initialState = {
     filteredCountries:[],
     currentPage:1,//!
     itemsPerPage:10,//!
+    continentsFlag:false,
 };
 
 export const countriesSlice = createSlice({
@@ -26,9 +28,13 @@ export const countriesSlice = createSlice({
             state.filteredCountries=action.payload;
         },
 
-        setCurrentPage: (state, action) => {//!
+        setCurrentPage: (state, action) => {
             state.currentPage = action.payload;
           },
+
+        setFlagContinentsState:(state,action) => {
+            state.continentsFlag = action.payload;
+        }
 
 
 
@@ -36,6 +42,6 @@ export const countriesSlice = createSlice({
     }
 })
 
-export const {getAllCountries, getCountryById, filters, setCurrentPage }=countriesSlice.actions; //!
+export const {getAllCountries, getCountryById, filters, setCurrentPage, setFlagContinentsState }=countriesSlice.actions; 
 
 export default countriesSlice.reducer;

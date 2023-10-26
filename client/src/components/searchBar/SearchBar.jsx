@@ -13,6 +13,7 @@ function SearchBar() {
 
   const handleSearch = () => {//Envía el nombre del país a las actions para buscarlo
     dispatch(searchByName(searchCountry));
+    setSearchCountry('')
   }
 
     return (

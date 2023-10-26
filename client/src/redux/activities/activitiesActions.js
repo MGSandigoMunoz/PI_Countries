@@ -9,7 +9,7 @@ export const fetchActivities = () => async (dispatch)=>{
         dispatch(getAllActivities(data));
         console.log(data)
     } catch (error) {
-        console.error("Error al obtener las actividades:", error);
+        console.error("Error getting activities:", error);
     }
 };
 
@@ -20,7 +20,7 @@ export const createActivity = ({ activityName, difficulty, duration, season, cou
       const nameExists = allActivities.some((activity) => activity.activityName.toLowerCase() === activityName.toLowerCase());
   
       if (nameExists) {
-        return alert('This Activity already exists');
+        
       } else {
         
         const response = await axios.post("http://localhost:3001/activities", { activityName, difficulty, duration, season, countryName });
@@ -29,10 +29,8 @@ export const createActivity = ({ activityName, difficulty, duration, season, cou
         return alert('Successful! Activity created');
       }
     } catch (error) {
-   
-      console.error("Error al crear la actividad:", error);
      
-      return alert('Error creating the activity. Please try again later.');
+      return alert('This Activity already exists');
     }
   }
   
@@ -49,6 +47,6 @@ export const filterActivities = (activityName) =>  (dispatch, getState) => {
             dispatch(filterbyActivity(filteredActivities));
         }
     } catch (error) {
-        console.error("Error al filtrar las actividades:", error.message);
+        console.error("Error when filtering activities:", error.message);
     }
 };

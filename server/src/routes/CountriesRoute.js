@@ -4,8 +4,6 @@ const countriesRouter = Router();
 const {getCountriesHandler, getCountryByIdHandler} = require("../handlers/CountriesHandlers");
 
 
-
-
 //?GET countries: "/countries"
 //Array de países(objetos) con propiedades que requiero.
 countriesRouter.get("/",getCountriesHandler);

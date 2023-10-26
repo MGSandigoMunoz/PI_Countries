@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllCountries, getCountryById, filters, setCurrentPage } from "./countriesSlice";
+import { getAllCountries, getCountryById, filters, setCurrentPage, setFlagContinentsState } from "./countriesSlice";
 
 
 
@@ -25,6 +25,7 @@ export const searchByName= (countryName)=> async (dispatch) =>{ //name viene de 
 
     dispatch(setCurrentPage(1))
     dispatch(filters(data));
+    dispatch(setFlagContinentsState(false))
 
 
   } catch (error) {
@@ -51,17 +52,30 @@ export const filterByID= (idPais)=> async (dispatch) =>{ //name viene de mi para
 
 
 export const filterCountriesByContinent = (continent) => (dispatch, getState) => {
-  const { allCountries,filteredCountries } = getState().countries;
-
+  const { allCountries,filteredCountries,continentsFlag} = getState().countries;
+  
   if (continent === "All"){
+  
     dispatch(filters(allCountries));
-  } else{
-    
-    const countriesByContinent = filteredCountries.filter(
+
+  } else if (continentsFlag){
+
+       const countriesByContinent = allCountries.filter(
     (country) => country.continents === continent
-  );
-  dispatch(setCurrentPage(1))
-  dispatch(filters(countriesByContinent));}
+       )
+
+       dispatch(setCurrentPage(1))
+       dispatch(filters(countriesByContinent));
+       dispatch(setFlagContinentsState(true))
+    } else{
+
+      const countriesByContinent = filteredCountries.filter(
+      (country) => country.continents === continent
+    );
+      dispatch(setCurrentPage(1))
+      dispatch(filters(countriesByContinent));
+      dispatch(setFlagContinentsState(true));
+    }
 };
 
 

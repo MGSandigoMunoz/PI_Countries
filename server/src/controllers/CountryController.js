@@ -1,6 +1,8 @@
 const { Country, Activity} = require('../db.js')
 const { Op } = require("sequelize");
 
+//! GET COUNTRY BY NAME
+
 const getCountryByNameController = async (name) => {
 
   const nameLowerCase = name.toLowerCase();
@@ -26,10 +28,10 @@ const getCountryByNameController = async (name) => {
     if (countries.length > 0) {
       return countries;
     } else {
-        throw new Error("No se encontraron países con el nombre especificado");
+        throw new Error("No countries found with the specified name");
     }
   } catch (error) {
-    throw new Error("Error al encontrar el país"+ error.message);
+    throw new Error("Error finding country"+ error.message);
   }
 };
 

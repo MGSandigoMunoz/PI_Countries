@@ -1,5 +1,6 @@
 const { Country } = require('../db')
 
+//!GET COUNTRIES
 const getCountriesController = async()=>{
     try {
         const allCountries= await Country.findAll() ;
@@ -9,6 +10,7 @@ const getCountriesController = async()=>{
     }
 }
 
+//!GET COUNTRIES BY ID
 const getCountryByIdController = async (idPais) => {
     try {
       

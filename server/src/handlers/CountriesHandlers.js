@@ -14,7 +14,7 @@ const getCountriesHandler = async(req, res)=>{
 const getCountryByIdHandler= async(req,res)=>{
 
     try {
-      const { idPais } = req.params; //Le puedo dar el nombre que quiera a idParams. Viene de la URL
+      const { idPais } = req.params; 
 
       const response = await getCountryByIdController(idPais)
       

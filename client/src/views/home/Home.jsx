@@ -12,6 +12,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const filteredCountries = useSelector((state) => state.countries.filteredCountries);
+  const continentsFlag = useSelector((state)=> state.countries.continentsFlag)
 
   useEffect(() => {
     // Llama a la acción para cargar los países al cargar la página
@@ -26,6 +27,7 @@ function Home() {
 //?FILTROS CONTINENTS, ORGANIZE ABC Y POPULATION
 
   const handleFilter = (event) =>{
+   
     dispatch(filterCountriesByContinent(event.target.value))
   }
 
@@ -75,6 +77,7 @@ function Home() {
               <option value="Africa">Africa</option>
               <option value="Europe">Europe</option>
               <option value="Asia">Asia</option>
+              <option value="Oceania">Oceania</option>
               <option value="North America">North America</option>
               <option value="South America">South America</option>
               <option value="Antarctica">Antartica</option>
